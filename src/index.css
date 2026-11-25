@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-script: "Alex Brush", cursive;
+
+  --color-burgundy: #3B1023;
+  --color-wine: #210B18;
+  --color-rose: #E8A3B5;
+  --color-gold: #D8B878;
+  --color-ivory: #FFF4F0;
+  --color-muted-pink: #B97891;
+}
+
+@layer base {
+  html {
+    background-color: #210B18;
+    color: #FFF4F0;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #210B18;
+    color: #FFF4F0;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    touch-action: manipulation;
+  }
+
+  /* Interactive elements touch optimization */
+  button, a {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Custom elegant scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #210B18;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #B97891 0%, #D8B878 100%);
+    border-radius: 9999px;
+  }
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.font-script-hand {
+  font-family: var(--font-script);
+}
+
+/* Luxury glassmorphism */
+.luxury-glass {
+  background: linear-gradient(
+    145deg,
+    rgba(59, 16, 35, 0.55) 0%,
+    rgba(33, 11, 24, 0.72) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(216, 184, 120, 0.25);
+  box-shadow:
+    0 20px 50px -12px rgba(10, 2, 7, 0.65),
+    inset 0 1px 0 0 rgba(255, 244, 240, 0.08);
+}
+
+.luxury-glass-soft {
+  background: linear-gradient(
+    145deg,
+    rgba(59, 16, 35, 0.42) 0%,
+    rgba(33, 11, 24, 0.58) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(216, 184, 120, 0.2);
+}
+
+/* Ivory paper texture for the Love Letter */
+.ivory-paper {
+  background-color: #FFF4F0;
+  background-image:
+    radial-gradient(at 15% 15%, rgba(232, 163, 181, 0.14) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(216, 184, 120, 0.16) 0px, transparent 55%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(59, 16, 35, 0.015) 0px,
+      rgba(59, 16, 35, 0.015) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+  box-shadow:
+    0 30px 80px -15px rgba(15, 3, 10, 0.8),
+    0 0 0 1px rgba(216, 184, 120, 0.45),
+    inset 0 0 40px rgba(216, 184, 120, 0.12);
+}
+
+/* Subtle gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF4F0 0%, #D8B878 48%, #E8A3B5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-rose-gold-gradient {
+  background: linear-gradient(135deg, #FFF4F0 10%, #E8A3B5 55%, #D8B878 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes slowAmbientShift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.06);
+  }
+}
+
+.animate-ambient-slow {
+  animation: slowAmbientShift 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-slow {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
